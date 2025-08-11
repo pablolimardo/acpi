@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tecnicatura en Automatización y Control de Procesos Industriales</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f0f4f8;
+        }
+        .tab-button {
+            color: #2563eb; /* Color de texto por defecto para los botones */
+        }
+        .tab-active {
+            background-color: #2563eb;
+            color: white; /* Color de texto para el botón activo */
+            border-color: #2563eb;
+        }
+        .modal {
+            display: none;
+            transition: opacity 0.3s ease;
+        }
+        .modal-content {
+            transform: scale(0.95);
+            transition: transform 0.3s ease;
+        }
+        .modal.flex {
+            display: flex;
+        }
+        .modal.opacity-100 .modal-content {
+            transform: scale(1);
+        }
+        /* Custom scrollbar */
+        .modal-body::-webkit-scrollbar {
+            width: 8px;
+        }
+        .modal-body::-webkit-scrollbar-track {
+            background: #e0e0e0;
+            border-radius: 10px;
+        }
+        .modal-body::-webkit-scrollbar-thumb {
+            background: #2563eb;
+            border-radius: 10px;
+        }
+        .modal-body::-webkit-scrollbar-thumb:hover {
+            background: #1d4ed8;
+        }
+    </style>
+</head>
+<body class="antialiased text-slate-800">
+
+    <!-- Header -->
+    <header class="bg-white shadow-md">
+        <div class="container mx-auto px-6 py-6 text-center flex flex-col items-center">
+            <!-- Logo de la escuela insertado aquí -->
+            <img src="https://storage.googleapis.com/gemini-prod-us-east1-user-content/uploaded:logo-industrial-el-calafate.png-39c3c477-8360-4d13-8b8a-8bbd0d4075d9" alt="Logo Escuela Industrial 9" class="h-28 w-28 mb-4">
+            <h1 class="text-3xl md:text-4xl font-bold text-blue-600">Tecnicatura en Automatización y Control de Procesos Industriales</h1>
+            <!-- Nombre de la escuela actualizado -->
+            <p class="mt-2 text-lg text-slate-600">Escuela Industrial N°9 "15 de noviembre" - El Calafate</p>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto p-6">
+
+        <!-- About Section -->
+        <section id="about" class="bg-white p-8 rounded-xl shadow-lg mb-12">
+            <h2 class="text-2xl font-bold mb-4 text-blue-700">¿De qué se trata la especialidad?</h2>
+            <p class="mb-6 text-slate-700 leading-relaxed">
+                Esta tecnicatura forma profesionales capaces de montar, instalar, calibrar, supervisar y mantener sistemas de automatización en diversos procesos industriales. El egresado podrá diseñar y programar sistemas de control, elaborar documentación técnica y participar en emprendimientos tecnológicos, aplicando criterios de seguridad, calidad y eficiencia.
+            </p>
+            <div class="grid md:grid-cols-2 gap-8">
+                <div>
+                    <h3 class="text-xl font-semibold mb-3 text-blue-600">Perfil del Egresado</h3>
+                    <ul class="list-disc list-inside space-y-2 text-slate-600">
+                        <li>Monta e instala instrumentos de medición y control.</li>
+                        <li>Elabora planos de instrumentación, electricidad y control.</li>
+                        <li>Supervisa y gestiona el mantenimiento de sistemas automáticos.</li>
+                        <li>Programa Controladores Lógicos Programables (PLC).</li>
+                        <li>Genera y participa en emprendimientos tecnológicos.</li>
+                        <li>Aplica software para diseño y control estadístico.</li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-xl font-semibold mb-3 text-blue-600">Área Ocupacional</h3>
+                    <p class="text-slate-600 leading-relaxed">
+                        El técnico puede desempeñarse en industrias como la minería, petróleo y gas, alimenticia y manufactura. También en empresas de servicios, laboratorios de calibración, infraestructura urbana, y en la gestión de emprendimientos propios.
+                    </p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Study Plan Section -->
+        <section id="study-plan">
+            <h2 class="text-2xl font-bold mb-6 text-center text-blue-700">Plan de Estudio Interactivo</h2>
+            
+            <!-- Year Tabs -->
+            <div class="flex flex-wrap justify-center gap-2 mb-8">
+                <!-- Se eliminó la clase text-blue-600 para que el CSS la maneje correctamente -->
+                <button class="tab-button tab-active py-2 px-4 rounded-full border-2 border-blue-500 font-semibold transition" onclick="showYear('year3')">3° Año</button>
+                <button class="tab-button py-2 px-4 rounded-full border-2 border-blue-500 font-semibold transition" onclick="showYear('year4')">4° Año</button>
+                <button class="tab-button py-2 px-4 rounded-full border-2 border-blue-500 font-semibold transition" onclick="showYear('year5')">5° Año</button>
+                <button class="tab-button py-2 px-4 rounded-full border-2 border-blue-500 font-semibold transition" onclick="showYear('year6')">6° Año</button>
+            </div>
+
+            <!-- Subjects Grid -->
+            <div id="subjects-grid" class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
+                <!-- Subject cards will be injected here by JavaScript -->
+            </div>
+        </section>
+
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-white mt-12 py-6">
+        <div class="container mx-auto px-6 text-center text-slate-500">
+            <p>Una mirada interactiva al futuro profesional de los estudiantes.</p>
+        </div>
+    </footer>
+
+    <!-- Modal -->
+    <div id="subject-modal" class="modal fixed inset-0 bg-black bg-opacity-60 z-50 justify-center items-center p-4">
+        <div class="modal-content bg-white rounded-2xl shadow-2xl w-full max-w-3xl max-h-[90vh] flex flex-col overflow-hidden">
+            <div class="flex justify-between items-center p-5 border-b">
+                <h3 id="modal-title" class="text-2xl font-bold text-blue-700"></h3>
+                <button id="modal-close" class="text-slate-500 hover:text-red-600 transition text-3xl">&times;</button>
+            </div>
+            <div id="modal-body" class="modal-body p-6 overflow-y-auto">
+                <div class="mb-6">
+                    <h4 class="text-xl font-semibold mb-2 text-blue-600">Capacidades y Propósitos</h4>
+                    <ul id="modal-capacities" class="list-disc list-inside space-y-2 text-slate-700"></ul>
+                </div>
+                <div>
+                    <h4 class="text-xl font-semibold mb-2 text-blue-600">Contenidos Principales</h4>
+                    <div id="modal-contents" class="space-y-4 text-slate-700"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Data for the study plan
+        const studyPlan = {
+            year3: [
+                { name: 'Lengua y Literatura', capacities: ['Formar usuarios competentes del lenguaje.', 'Acceder a la lectura de textos literarios de diversas épocas.', 'Reflexionar sobre aspectos normativos y gramaticales.', 'Promover el trabajo cooperativo con TIC.'], contents: 'Lectura y escritura de textos literarios y no literarios, géneros narrativo, lírico y dramático, polifonía, argumentación, reflexión sobre la lengua y diversidad lingüística.' },
+                { name: 'Geografía', capacities: ['Comprender la organización del territorio por las sociedades.', 'Construir una visión contextualizada de procesos socio-territoriales.', 'Entender las múltiples causas de conflictos sociales y problemas ambientales.', 'Promover la tolerancia y el respeto por la diversidad.'], contents: 'Sociedad, Ambiente y Desarrollo Sustentable. Dinámica de la Población y Condiciones de Vida. Organización Económica y Política de los Territorios.' },
+                { name: 'Historia', capacities: ['Comprender procesos históricos y su conexión con el presente.', 'Analizar la complejidad de la realidad social desde múltiples perspectivas.', 'Desarrollar el pensamiento crítico.', 'Promover el respeto por la diversidad cultural.'], contents: 'Sociedad y diversidad cultural a través del tiempo. Organización de la producción. Poder y formas de organización política. Capitalismo, revoluciones burguesas, conformación del espacio rioplatense.' },
+                { name: 'Lengua Extranjera - Inglés', capacities: ['Comprender y producir textos orales y escritos.', 'Expresarse e interactuar para el intercambio de ideas.', 'Desarrollar autonomía en el aprendizaje de una lengua extranjera.', 'Disfrutar el aprendizaje como oportunidad de comunicación.'], contents: 'Tiempos verbales (Presente, Pasado, Futuro), modales, adverbios, comparativos y superlativos, conectores y expresiones comunicativas.' },
+                { name: 'Formación Ética y Ciudadana', capacities: ['Comprender conceptos éticos, jurídicos y políticos.', 'Ejercitar y defender los Derechos Humanos.', 'Ejercer una ciudadanía plena, responsable y solidaria.', 'Desarrollar pensamiento crítico y reflexivo.'], contents: 'Identidad y diversidad. Participación ciudadana y política. Convivencia social y derechos humanos. Globalización, consumo, problemáticas juveniles.' },
+                { name: 'Educación Física', capacities: ['Participar en prácticas deportivas, gimnásticas y en la naturaleza.', 'Promover pensamiento crítico sobre modelos corporales y hábitos saludables.', 'Desarrollar capacidades condicionales y coordinativas.', 'Construir la corporalidad y disponibilidad corporal.'], contents: 'Disponibilidad de sí mismo. Interacción con otros en prácticas ludo-motrices. Prácticas en el ambiente natural. Entrenamiento de capacidades condicionales.' },
+                { name: 'Matemática', capacities: ['Resolver cálculos en el campo de los números reales.', 'Concebir y ejecutar planes de resolución de problemas.', 'Asociar el cálculo con el análisis y gráfico de funciones.', 'Resolver ecuaciones, inecuaciones e identidades.'], contents: 'Geometría y medida (trigonometría). Números reales y complejos. Expresiones algebraicas, ecuaciones e inecuaciones. Funciones lineal y cuadrática, sistemas de ecuaciones.' },
+                { name: 'Física Aplicada', capacities: ['Comprender saberes físicos para participar reflexivamente en la sociedad.', 'Resolver problemas y explorar fenómenos físicos.', 'Usar lenguaje científico y nuevas tecnologías.', 'Trabajar colaborativamente en el diseño de dispositivos.'], contents: 'Cinemática, dinámica, trabajo y energía. Termometría y calorimetría. Electrotecnia (Leyes de Ohm, Kirchhoff). Electrónica (semiconductores). Neumática e Hidráulica (principios de fluidos).' },
+                { name: 'Química Aplicada', capacities: ['Construir conocimientos científicos a partir de problemas.', 'Desarrollar una visión científica del mundo natural.', 'Adquirir habilidades prácticas en el laboratorio.', 'Integrar el conocimiento con otras disciplinas.'], contents: 'Carácter eléctrico de la materia (modelos atómicos, uniones). Transformaciones de la materia (reacciones, compuestos). Normas de seguridad en laboratorio. Electroquímica y corrosión.' },
+                { name: 'Informática Aplicada', capacities: ['Reconocer y relacionar diferentes tecnologías informáticas.', 'Gestionar datos para producir e interpretar información.', 'Clasificar y manejar software específico.', 'Adoptar una actitud ética en el uso de la tecnología.'], contents: 'Sistema Informático (hardware, software). Sistema Operativo. Tratamiento de Datos (procesador de texto, presentaciones). Modelización (planillas de cálculo). Conceptos y herramientas de Bases de Datos (SQL).' },
+                { name: 'Dibujo Técnico y Representación Gráfica', capacities: ['Representar vistas y perspectivas aplicando normativas.', 'Utilizar correctamente elementos de representación gráfica.', 'Realizar croquis a mano alzada y despieces.', 'Utilizar software CAD para realizar planos.'], contents: 'Normas IRAM. Acotación. Construcción de figuras planas. Representación de cuerpos y perspectivas (caballera, isométrica). Secciones y Cortes. Uso de software de diseño asistido.' },
+                { name: 'Seguridad e Higiene y Protección Ambiental', capacities: ['Conocer y aplicar procedimientos de prevención de accidentes.', 'Implementar técnicas de medición normalizadas.', 'Controlar el cumplimiento de normas técnicas.', 'Conocer la normativa sobre protección ambiental y salud laboral.'], contents: 'Conceptos de riesgo, accidente. Normas de prevención en instalaciones y equipos. Riesgos químicos, eléctricos y mecánicos. Elementos de protección personal. Prevención de incendios. Primeros auxilios. Normas ISO 14000.' },
+                { name: 'Taller de la Especialidad', capacities: ['Diseñar sistemas de control.', 'Programar y controlar sistemas.', 'Relacionar conceptos de sistemas de control.', 'Adquirir habilidades en el uso de dispositivos de entrada/salida.', 'Interpretar y generar diagramas lógicos y lenguajes de programación.'], contents: 'Tecnología de Control (sistemas de lazo abierto/cerrado, sensores, actuadores, lógica cableada). Programación (algoritmos, paradigmas de programación, estructuras de control, programación orientada a objetos).' },
+            ],
+            year4: [
+                { name: 'Lengua y Literatura', capacities: ['Formar usuarios competentes del lenguaje.', 'Acceder a la lectura de textos literarios de diversas épocas.', 'Reflexionar sobre aspectos normativos y gramaticales.', 'Promover el trabajo cooperativo con TIC.'], contents: 'Lectura y escritura de textos literarios y no literarios, con énfasis en literaturas americanas. Producción de textos ficcionales y monografías. Análisis del discurso político.' },
+                { name: 'Lengua Extranjera - Inglés Técnico', capacities: ['Comprender y analizar discursos técnicos orales y escritos.', 'Producir textos técnicos coherentes y apropiados.', 'Interpretar textos técnicos y literarios de forma autónoma.', 'Gestionar el propio proceso de aprendizaje.'], contents: 'Discurso oral y escrito técnico. Estructura de textos (manuales, informes). Vocabulario específico de la modalidad. Voz pasiva, oraciones complejas.' },
+                { name: 'Educación Física', capacities: ['Participar en prácticas deportivas, gimnásticas y en la naturaleza.', 'Promover pensamiento crítico sobre modelos corporales y hábitos saludables.', 'Desarrollar capacidades condicionales y coordinativas.', 'Construir la corporalidad y disponibilidad corporal.'], contents: 'Entrenamiento de capacidades condicionales. Habilidades motrices específicas. Análisis de la relación entre capacidad, habilidad y resolución de problemas. Encuentros deportivos institucionales.' },
+                { name: 'Matemática', capacities: ['Utilizar vectores, trigonometría, límites y derivadas para resolver problemas.', 'Interpretar y aplicar conceptos de estadística y probabilidad.', 'Formular y resolver problemas seleccionando modelos adecuados.', 'Analizar la validez de razonamientos y resultados.'], contents: 'Funciones (polinómica, trigonométrica, racional, logarítmica, exponencial). Límites y continuidad. Derivadas y sus aplicaciones. Geometría vectorial. Probabilidad y estadística.' },
+                { name: 'Ensayo y Evaluación de Sistemas con Entornos de Simulación', capacities: ['Aprender a controlar fenómenos a través de la simulación.', 'Construir aprendizajes a partir de la experiencia activa.', 'Manejar software de simulación específico.', 'Generar y depurar proyectos simulados.'], contents: 'Manejo de simuladores (PROTEUS, LIVEWIRE, etc.). Generación de código fuente. Creación y testeo de elementos y sistemas simulados. Depuración de hardware y software. Documentación técnica.' },
+                { name: 'Tecnología de la Representación Gráfica e Interpretación de Planos', capacities: ['Realizar e interpretar croquis y planos manualmente y con CAD.', 'Integrar estándares de representación manual y asistida.', 'Interpretar y elaborar documentación gráfica de circuitos e instalaciones.', 'Aplicar normas y reglamentaciones vigentes.'], contents: 'Normas y reglamentaciones (IRAM, AEA). Croquizado y medición de piezas. Diseño Asistido por Computadora (CAD): configuración, funciones, capas, acotaciones, dibujo 2D y 3D.' },
+                { name: 'Automatización', capacities: ['Interpretar las propiedades del aire en la automatización.', 'Reconocer los elementos del tratamiento de aire comprimido.', 'Identificar funciones de dispositivos eléctricos y electrónicos.', 'Manejar señales de entrada/salida y programar controladores.'], contents: 'Tecnología de automatización neumática. Mando y control en sistemas de automatización. Elementos de tratamiento de señal eléctrica. Lógica de Control (método cascada, paso a paso). Lógica Programable e interfaces.' },
+                { name: 'Algoritmos y Programación', capacities: ['Generar y desarrollar técnicas para resolver problemas computacionales.', 'Internalizar conceptos de programación estructurada.', 'Desarrollar habilidades en el manejo de datos abstractos.', 'Desarrollar programas de automatización y ensayo.'], contents: 'Resolución de problemas computacionales. Programación estructurada. Tipos abstractos de datos (pilas, colas, arreglos, árboles). Algoritmos de ordenamiento y búsqueda.' },
+                { name: 'Electrónica Digital', capacities: ['Interpretar sistemas de representación y operación de lógica digital.', 'Realizar ensayos y mediciones de componentes digitales.', 'Utilizar instrumentos virtuales para análisis.', 'Documentar ensayos y mediciones.'], contents: 'Sistemas de representación (binario, etc.). Álgebra de Boole y minimización de funciones. Sistemas y lógica combinacional (sumadores, codificadores). Sistemas secuenciales (Flip-Flops, contadores). Tecnologías TTL y CMOS.' },
+                { name: 'Electrónica y Circuitos Eléctricos', capacities: ['Reconocer propiedades de dispositivos eléctricos y electrónicos.', 'Realizar mediciones, análisis y síntesis de componentes.', 'Utilizar instrumentos virtuales para ensayo.', 'Analizar, diseñar y documentar sistemas de automatización.'], contents: 'Circuitos de corriente continua y alterna (Leyes de Kirchhoff, Thévenin, Norton). Diodos y transistores en conmutación. Estructura de sistemas analógicos (fuentes, amplificadores, filtros). Amplificadores operacionales.' },
+            ],
+             year5: [
+                { name: 'Lengua Extranjera - Inglés Técnico', capacities: ['Comprender y producir mensajes técnicos.', 'Utilizar estrategias para la comprensión de textos.', 'Fundamentar posiciones personales.', 'Desarrollar capacidad argumentativa.'], contents: 'Uso de la lengua en contextos técnicos. Conditional Type 3. Reported Speech. Conectores de contraste. Estrategias de traducción y uso de diccionario.' },
+                { name: 'Educación Física', capacities: ['Aplicar conocimientos de entrenamiento para la salud.', 'Analizar efectos del entrenamiento en el deporte.', 'Emplear aspectos técnicos y tácticos en juego.', 'Programar y ejecutar actividades al aire libre.'], contents: 'Principios y métodos de entrenamiento. Contracción muscular. Deporte, salud y calidad de vida. Lógica de los deportes (reglamento, táctica). Actividades en la naturaleza.' },
+                { name: 'Análisis Matemático', capacities: ['Relacionar e integrar saberes para resolver problemas de la especialidad.', 'Aplicar algoritmos para el estudio y construcción de funciones.', 'Construir modelos matemáticos complejos.', 'Utilizar la matemática como herramienta para la especialidad.'], contents: 'Integrales (indefinidas, definidas, métodos de resolución). Cálculo diferencial de varias variables. Ecuaciones diferenciales. Resolución numérica de ecuaciones. Series numéricas y de funciones.' },
+                { name: 'Economía', capacities: ['Comprender los principales problemas de la economía.', 'Identificar los componentes del sistema económico.', 'Comprender la evolución del pensamiento económico.', 'Relacionar eficiencia técnica y económica.'], contents: 'El problema económico (escasez, necesidades). Factores de producción. Procesos productivos y normas de calidad. Sistema financiero. Sistemas económicos (mercado, centralizado). Pensamiento económico.' },
+                { name: 'Sensores y Transductores', capacities: ['Reconocer los procesos físicos y variables medibles.', 'Comprender el funcionamiento de distintos tipos de sensores.', 'Conocer las tecnologías utilizadas en el sensado.', 'Seleccionar y calibrar sensores.'], contents: 'Conceptos básicos y clasificación. Sensores de temperatura, fuerza, presión, nivel. Sensores magnéticos y de proximidad. Sensores de desplazamiento y velocidad. Acondicionamiento de señal.' },
+                { name: 'Redes y Comunicación', capacities: ['Reconocer tecnologías de transmisión y adquisición de datos.', 'Desarrollar habilidades en la construcción de redes.', 'Interpretar y desarrollar esquemas de conexión.', 'Configurar dispositivos de red.'], contents: 'Arquitectura de Redes (Modelo OSI, TCP/IP). Transmisión de Datos sobre Medios Físicos (cableado, señalización). Configuración de routers y switches. Protocolos de comunicación industrial.' },
+                { name: 'Dispositivos Electrónicos Programables', capacities: ['Reconocer distintas arquitecturas de microcontroladores.', 'Desarrollar habilidades de programación de microcontroladores.', 'Diseñar y construir prototipos electrónicos programables.', 'Ensayar, medir e interpretar el comportamiento de prototipos.'], contents: 'Arquitectura de Microcontroladores (RISC, etc.). Programación de Microcontroladores (Assembly, IDE). Interconexión con Periféricos. Módulos internos (ADC, Timers).' },
+                { name: 'Control de Máquinas Eléctricas', capacities: ['Conceptualizar conocimientos de equipamiento electromecánico.', 'Comprender el funcionamiento de máquinas eléctricas.', 'Interpretar planos eléctricos y funcionales.', 'Realizar interconexiones de dispositivos y máquinas.'], contents: 'Dispositivos eléctricos (interruptores, contactores). Protecciones y puesta a tierra. Máquinas estáticas (transformadores). Máquinas de corriente continua. Máquinas síncronas y asíncronas.' },
+                { name: 'Sistemas Hidráulicos y Neumáticos', capacities: ['Identificar elementos de sistemas hidráulicos y neumáticos.', 'Reconocer condiciones operativas de funcionamiento.', 'Desarrollar habilidades para el mantenimiento.', 'Diseñar y montar circuitos.'], contents: 'Equipos neumáticos (compresores, secadores). Equipos hidráulicos (bombas, motores, válvulas). Mantenimiento y montaje de automatismos hidráulicos y electrohidráulicos. Circuitos secuenciales.' },
+                { name: 'Sistemas Mecánicos', capacities: ['Comprender las condiciones dinámicas de estructuras.', 'Reconocer las fuerzas que actúan en mecanismos.', 'Identificar la tecnología de dispositivos mecánicos.', 'Comprender la automatización de sistemas mecánicos.'], contents: 'Estructura (equilibrio, centro de gravedad). Resistencia en las Transmisiones (rozamiento, lubricantes). Órganos de Transmisión (tornillos, correas, engranajes, levas).' },
+                { name: 'Práctica Profesionalizante I', capacities: ['Integrar saberes adquiridos en la trayectoria formativa.', 'Desarrollar proyectos innovadores y factibles.', 'Resolver problemáticas puntuales locales o regionales.', 'Adquirir experiencias laborales en un entorno controlado.'], contents: 'Desarrollo de proyectos dentro de la institución educativa, como proyectos productivos, tecnológicos, de investigación, comunitarios o de mantenimiento, aplicando las competencias del perfil profesional.' },
+            ],
+            year6: [
+                { name: 'Lengua Extranjera - Inglés Técnico', capacities: ['Comprender y producir mensajes técnicos complejos.', 'Utilizar estrategias avanzadas para la comprensión.', 'Fundamentar posiciones personales con argumentos sólidos.', 'Desarrollar autonomía en la traducción técnica.'], contents: 'Análisis y producción de textos técnicos avanzados. Vocabulario específico de alta complejidad. Estrategias de traducción para manuales, papers y documentación técnica. Presentaciones técnicas en inglés.' },
+                { name: 'Educación Física', capacities: ['Aplicar conocimientos de entrenamiento para la salud y el deporte.', 'Argumentar sobre los efectos del entrenamiento.', 'Gestionar y organizar eventos deportivos.', 'Desarrollar un proyecto de vida activo y saludable.'], contents: 'Planificación del entrenamiento personal. Deporte, salud y calidad de vida. Ética en el deporte. Corporeidad y problemáticas sociales. Organización de torneos y eventos.' },
+                { name: 'Marco Jurídico', capacities: ['Conocer normas que regulan derechos y obligaciones.', 'Comprender sus derechos y obligaciones laborales.', 'Vincular normas jurídicas con contratos y producción.', 'Conocer la normativa de protección ambiental y salud laboral.'], contents: 'Derecho y sus ramas. Relación jurídica. Contrato de trabajo y modalidades. Leyes laborales. Seguridad social. Código de tránsito. Leyes de protección ambiental.' },
+                { name: 'Administración y Gestión de Mantenimiento', capacities: ['Comprender distintas estructuras organizativas.', 'Analizar sistemas de administración de datos.', 'Relacionar procesos administrativos con la gestión eficiente.', 'Utilizar técnicas de control de proyectos.'], contents: 'Las organizaciones y sus estructuras. Sistemas administrativos. Gestión de Calidad (Normas ISO). Gestión de recursos humanos. Gestión de Mantenimiento (Preventivo, Predictivo, Correctivo). Indicadores.' },
+                { name: 'Supervisión, Control y Adquisición de Datos (SCADA)', capacities: ['Interpretar la arquitectura de sistemas SCADA.', 'Reconocer la tecnología de adquisición de datos.', 'Realizar prácticas de transmisión y recepción de datos.', 'Programar sistemas SCADA para control de procesos.'], contents: 'Transmisión de Datos sobre Medios Físicos. Comunicaciones en los procesos de control (buses de campo, Modbus). Sistemas SCADA: arquitectura, programación y aplicación en procesos productivos.' },
+                { name: 'Sistemas Embebidos', capacities: ['Interpretar la arquitectura y funcionamiento de sistemas embebidos.', 'Identificar y representar componentes de sistemas embebidos.', 'Formular y desarrollar diseños de software para sistemas embebidos.', 'Trabajar con sistemas operativos de tiempo real (RTOS).'], contents: 'Arquitecturas de Sistemas Embebidos (microcontroladores de 16/32 bits). Desarrollo de Software para Sistemas Embebidos (lenguajes superiores, RTOS). Desarrollo de Hardware (acondicionamiento de señal, interfaces).' },
+                { name: 'Control de Máquinas Eléctricas y Accionamientos', capacities: ['Interpretar prestaciones de cada tipo de máquina eléctrica.', 'Operar dispositivos de comando y control de máquinas.', 'Desarrollar sistemas de accionamientos industriales.', 'Realizar montajes, mediciones e interpretar resultados.'], contents: 'Máquina Accionada (cálculo de inercia, selección de motor). Sistemas de control de velocidad, arranque y frenado de motores. Convertidores de frecuencia. Sistemas de inversión de marcha.' },
+                { name: 'Laboratorio de Hidráulica y Neumática', capacities: ['Montar, operar y mantener sistemas de automatización hidráulicos/neumáticos.', 'Realizar proyectos de automatización con estas tecnologías.', 'Realizar ensayos, pruebas y mediciones.', 'Compartir resultados y presentar proyectos.'], contents: 'Elementos de potencia y control hidráulico y proporcional. Mando y control en sistemas de automatización hidráulica y neumática. Simplificación de circuitos. Circuitos de control de presión, caudal y secuenciales.' },
+                { name: 'Laboratorio de Mecatrónica', capacities: ['Montar, operar y mantener dispositivos mecatrónicos.', 'Desarrollar proyectos mecatrónicos de diversa complejidad.', 'Realizar ensayos, pruebas y mediciones.', 'Presentar los proyectos desarrollados.'], contents: 'Proyecto y diseño de productos mecatrónicos. Cálculo y dimensionamiento de sistemas mecánicos. Sistema de automatización y control (selección de sensores, actuadores, PLCs). Integración de sistemas.' },
+                { name: 'Práctica Profesionalizante II', capacities: ['Integrar todos los saberes de la formación en un entorno real.', 'Resolver problemas complejos del ámbito profesional.', 'Desarrollar autonomía, responsabilidad y trabajo en equipo.', 'Establecer un primer contacto con el mundo laboral.'], contents: 'Formación en Ambientes de Trabajo. Desarrollo de proyectos en organizaciones o empresas afines al perfil del técnico, abordando problemáticas reales de automatización y control de procesos industriales.' },
+            ]
+        };
+
+        // DOM Elements
+        const grid = document.getElementById('subjects-grid');
+        const modal = document.getElementById('subject-modal');
+        const modalTitle = document.getElementById('modal-title');
+        const modalCapacities = document.getElementById('modal-capacities');
+        const modalContents = document.getElementById('modal-contents');
+        const modalClose = document.getElementById('modal-close');
+        const tabButtons = document.querySelectorAll('.tab-button');
+
+        // Functions
+        function createSubjectCard(subject) {
+            const card = document.createElement('div');
+            card.className = 'bg-white p-4 rounded-lg shadow-md hover:shadow-xl hover:-translate-y-1 transition-all duration-300 cursor-pointer flex items-center justify-center text-center';
+            card.innerHTML = `<h3 class="font-semibold text-slate-700">${subject.name}</h3>`;
+            card.addEventListener('click', () => openModal(subject));
+            return card;
+        }
+
+        function renderSubjects(year) {
+            grid.innerHTML = '';
+            studyPlan[year].forEach(subject => {
+                const card = createSubjectCard(subject);
+                grid.appendChild(card);
+            });
+        }
+
+        function openModal(subject) {
+            modalTitle.textContent = subject.name;
+            
+            modalCapacities.innerHTML = '';
+            subject.capacities.forEach(cap => {
+                const li = document.createElement('li');
+                li.textContent = cap;
+                modalCapacities.appendChild(li);
+            });
+            
+            modalContents.innerHTML = `<p>${subject.contents}</p>`;
+            
+            modal.classList.add('flex');
+            setTimeout(() => modal.classList.add('opacity-100'), 10);
+            setTimeout(() => modal.querySelector('.modal-content').classList.add('opacity-100'), 50);
+        }
+
+        function closeModal() {
+            modal.classList.remove('opacity-100');
+            modal.querySelector('.modal-content').classList.remove('opacity-100');
+            setTimeout(() => modal.classList.remove('flex'), 300);
+        }
+
+        function showYear(year) {
+            renderSubjects(year);
+            tabButtons.forEach(button => {
+                button.classList.remove('tab-active');
+                if (button.getAttribute('onclick') === `showYear('${year}')`) {
+                    button.classList.add('tab-active');
+                }
+            });
+        }
+
+        // Event Listeners
+        modalClose.addEventListener('click', closeModal);
+        modal.addEventListener('click', (e) => {
+            if (e.target === modal) {
+                closeModal();
+            }
+        });
+        document.addEventListener('keydown', (e) => {
+            if (e.key === "Escape" && modal.classList.contains('flex')) {
+                closeModal();
+            }
+        });
+
+        // Initial render
+        showYear('year3');
+
+    </script>
+</body>
+</html>
